@@ -116,6 +116,43 @@ Dans le tableau ci-dessous, les colonnes indiquent les sommets et les lignes le 
 
 \subsection{Bellman Ford}
 
+Dans le tableau ci dessous, les colonnes indiquent le sommet et les lignes le nombre maximum de chemin que l'on peut prendre pour arriver au sommet. La logique reste la même concerant les cases. Par exemple \emph{5 B} à la ligne \emph{4} et à la colonne \emph{C} indique que pour se rendre en \emph{C} avec au plus 4 chemins emprunté, le plus court chemin vaut 5 et passe par \emph{B}.Comme précedement $\infty$ indique que le sommet n'a pas encore pu être atteint.
+
+\hfill
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+	\hline
+	Itération & A & B & C & D & E & F & G & H & I & J & Z\\
+	\hline
+	0 & 0 A & $\infty$ & $\infty$ & $\infty$ & $\infty$ & $\infty$ & $\infty$ & $\infty$ & $\infty$ & $\infty$ & $\infty$\\
+	\hline 
+	1 & 0 A & 3 A & $\infty$ & $\infty$ & 5 A & $\infty$ & $\infty$ & 4 A & $\infty$ & $\infty$ & $\infty$\\
+	\hline
+	2 & 0 A & 3 A & 5 B & $\infty$ & 5 A & 9 E & $\infty$ & 4 A & 6 H & $\infty$ & $\infty$\\
+	\hline
+	3 & 0 A & 3 A & 5 B & 8 C & 5 A & 7 C & 11 C & 4 A & 6 H & 12 I & $\infty$\\
+	\hline
+	4 & 0 A & 3 A & 5 B & 8 C & 5 A & 7 C & 11 C & 4 A & 6 H & 10 F & 10 D\\
+	\hline
+	5 & 0 A & 3 A & 5 B & 8 C & 5 A & 7 C & 11 C & 4 A & 6 H & 10 F & 10 D\\
+	\hline
+	6 & 0 A & 3 A & 5 B & 8 C & 5 A & 7 C & 11 C & 4 A & 6 H & 10 F & 10 D\\
+	\hline
+	7 & 0 A & 3 A & 5 B & 8 C & 5 A & 7 C & 11 C & 4 A & 6 H & 10 F & 10 D\\
+	\hline
+	8 & 0 A & 3 A & 5 B & 8 C & 5 A & 7 C & 11 C & 4 A & 6 H & 10 F & 10 D\\
+	\hline
+	9 & 0 A & 3 A & 5 B & 8 C & 5 A & 7 C & 11 C & 4 A & 6 H & 10 F & 10 D\\
+	\hline
+	10 & 0 A & 3 A & 5 B & 8 C & 5 A & 7 C & 11 C & 4 A & 6 H & 10 F & 10 D\\
+	\hline
+\end{tabular}
+
+\hfill
+
+\hfill
+
+On remarque que à partir de la ligne 4, plus rien ne change, en effet tous les plus courts chemins depuis le sommet A vers les autres sommets empruntent au plus 4 arrêtes. Pour trouver le chemin le plus court de \emph{A} à \emph{Z} même logique que précedement, ce qui nous donne : \emph{ABCDZ} avec un poid de 10.
 
 
 \clearpage
