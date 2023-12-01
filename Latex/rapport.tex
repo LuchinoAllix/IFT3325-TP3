@@ -78,6 +78,46 @@
 
 \section{Exercice 2 \emph{(16 points)}}
 
+\subsection{Dijkstra}
+
+Dans le tableau ci-dessous, les colonnes indiquent les sommets et les lignes le sommet où l'on est actuellement. Par exemple \emph{E (5)} signifie qu'on se trouve sur le sommet E et que le poid associé pour arriver à ce sommet est de 5. Le croisement entre une ligne et une colonne indique comment faire pour arriver à ce sommet. Par exemple, \emph{5 B} à la ligne \emph{H (4)} et à la colonne \emph{C} indique que pour se rendre en \emph{C} le plus court chemin vaut 5 et passe par \emph{B}. Le symbole $\infty$ indique que le sommet n'a pas encore pu être atteint et '-' indique que le chemin à déjà été visité. 
+
+\hfill
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+	\hline
+	& A & B & C & D & E & F & G & H & I & J & Z\\
+	\hline
+	Départ & 0 A & $\infty$ & $\infty$ & $\infty$ & $\infty$ & $\infty$ & $\infty$ & $\infty$ & $\infty$ & $\infty$ & $\infty$\\
+	\hline 
+	A (0) & - & 3 A & $\infty$ & $\infty$ & 5 A & $\infty$ & $\infty$ & 4 A & $\infty$ & $\infty$ & $\infty$\\
+	\hline
+	B (3) & - & - & 5 B & $\infty$ & 5 A & 10 B & $\infty$ & 4 A & $\infty$ & $\infty$ & $\infty$\\
+	\hline
+	H (4) & - & - & 5 B & $\infty$ & 5 A & 9 H & $\infty$ & - & 6 H & $\infty$ & $\infty$\\
+	\hline
+	E (5) & - & - & 5 B & $\infty$ & - & 9 H & $\infty$ & - & 6 H & $\infty$ & $\infty$\\
+	\hline
+	C (5) & - & - & - & 8 C & - & 7 C & 11 C & - & 6 H & $\infty$ & $\infty$\\
+	\hline
+	I (6) & - & - & - & 8 C & - & 7 C & 11 C & - & - & 12 I & $\infty$\\
+	\hline
+	F (7) & - & - & - & 8 C & - & - & 11 C & - & - & 10 F & $\infty$\\
+	\hline
+	D (8) & - & - & - & - & - & - & 11 C & - & - & 10 F & 10 D\\
+	\hline
+\end{tabular}
+
+\hfill
+
+\hfill
+
+À la dernière ligne du tableau, on voit que l'on peut arriver en \emph{Z} en venant de D avec un chemin de poid 10. Ceci met fin à l'algorithme car les autres chemins qui n'arrivent pas encore à \emph{Z} sont de poid supérieur ou égal à 10. Pour retrouver le chemin parcouru on remonte le tableau. On arrive en \emph{Z} depuis \emph{D}, on arrive en \emph{D} depuis \emph{C} et ainsi de suite pour obtenir le chemin  de poid 10 : \emph{ABCDZ}.
+
+\subsection{Bellman Ford}
+
+
+
 \clearpage
 
 \section{Exercice 3 \emph{(12 points)}}
