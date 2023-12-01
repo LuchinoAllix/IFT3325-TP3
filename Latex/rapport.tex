@@ -114,7 +114,7 @@ Dans le tableau ci-dessous, les colonnes indiquent les sommets et les lignes le 
 
 À la dernière ligne du tableau, on voit que l'on peut arriver en \emph{Z} en venant de D avec un chemin de poid 10. Ceci met fin à l'algorithme car les autres chemins qui n'arrivent pas encore à \emph{Z} sont de poid supérieur ou égal à 10. Pour retrouver le chemin parcouru on remonte le tableau. On arrive en \emph{Z} depuis \emph{D}, on arrive en \emph{D} depuis \emph{C} et ainsi de suite pour obtenir le chemin  de poid 10 : \emph{ABCDZ}.
 
-\subsection{Bellman Ford}
+\subsection{Bellman-Ford}
 
 Dans le tableau ci dessous, les colonnes indiquent le sommet et les lignes le nombre maximum de chemin que l'on peut prendre pour arriver au sommet. La logique reste la même concerant les cases. Par exemple \emph{5 B} à la ligne \emph{4} et à la colonne \emph{C} indique que pour se rendre en \emph{C} avec au plus 4 chemins emprunté, le plus court chemin vaut 5 et passe par \emph{B}.Comme précedement $\infty$ indique que le sommet n'a pas encore pu être atteint.
 
@@ -196,6 +196,8 @@ On remarque que à partir de la ligne 4, plus rien ne change, en effet tous les 
 \clearpage
 
 \section{Exercice 10 \emph{(5 points)}}
+
+Non les algorithmes de Dijkstra et Bellman-Frod ne produisent pas tout le temps les mêmes résultats car l'algorithme de Dijkstra ne permet pas des arrêtes avec des poids négatifs alors que celui de Bellman-Ford oui. Donc dans un graph avec au moins une arrête de poid négatif, les deux algorithmes ne produiront pas peut être pas le même résultat.
 
 
 \end{document}
