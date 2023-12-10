@@ -163,6 +163,28 @@ On remarque que à partir de la ligne 4, plus rien ne change, en effet tous les 
 
 \subsection{a. \emph{(6 points)}}
 
+Les deux réseaux ne peuvent pas communiquer car ils ont le même network ID.
+
+
+ \noindent \begin{minipage}{9cm}
+	\begin{align*}
+		A &= 01100101.01000000.00000000.01100110\\
+		M &= 11111111.11111111.00000000.00000000\\
+		A \land  M &= 01100101.01000000.00000000.00000000\\
+	\end{align*}
+\end{minipage}
+\begin{minipage}{7cm}
+	\begin{align*}
+		B &= 01100101.01000000.00101101.01100110\\
+		M &= 11111111.11111111.00000000.00000000\\
+		B \land  M &= 01100101.01000000.00000000.00000000\\
+	\end{align*}
+\end{minipage}
+
+\hfill
+
+En effet, on remarque que $A \land  M = B \land  M$
+
 \subsection{b. \emph{(6 points)}}
 
 \clearpage
