@@ -264,6 +264,21 @@ Pour $n$ segments, on veut donc trouver un $i$ tq. $Q(i-1) < m \leq Q(i)$.
 
 Si $n \leq Q(t)$ (ie. $i \leq t$), alors $Q(i) = 2^i - 1$ donc $i = \left\lceil\lg(n+1)\right\rceil$
 
+\hfill
+
+-------------------------- Ma version ----------------------
+
+\hfill
+
+On doit transmettre $M$ octets au nième aller retour, or la taille d'un segment est de $N$ octets. Donc avec un slow start on commence avec $N$ octets puis $2N$ puis $4N$ et ainsi de suite jusqu'à $2^{n-1}N$ octets (on veut commencer à $2^0$ avec n = 1 et non n = 0 car on aura alors fait 1 aller retour).
+
+\hfill
+
+On veut envoyer au moins $M$ octets donc il faut que 
+
+$$ 2^{n-1} N \geqslant M  $$ donc $$ 2^{n-1} \geqslant \frac{M}{N} $$ donc $$ n \geqslant \log_2\left(\frac{M}{N}\right)$$
+On en conclu que $$ n = \left\lceil \log_2\left(\frac{M}{N}\right)\right\rceil +1$$
+
 \clearpage
 
 \section{Exercice 7 \emph{(7 points)}}
