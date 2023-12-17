@@ -221,18 +221,6 @@ Bien entendu, les donnés contenues changes aussi.
 \clearpage
 
 \section{Exercice 5 \emph{(12 points)}}
-%Un deadlock se produit si au moins une des machines attend une réponse spécifique avant de procéder d'avantage et que l'autre machine fait tout sauf l'envoyer (généralement parce qu'elle attend elle aussi une réponse avant de procéder). 
-
-%Les two-way handshake ont des problèmes, mais les deadlocks n'en sont généralement pas un. Par contre, si une des machines pense qu'il s'agit d'un three-way handshake et attend le deuxième \verb|ACK| avant de procéder, elle va attendre longtemps.
-
-%Ex:
-%\begin{enumerate}
-%    \item A envoi un \verb|SYN| à B
-%    \item B reçoit le \verb|SYN| et envoi un \verb|ACK|
-%    \item A reçoit le \verb|ACK|. Puisque A utilisait un two-way handshake, il trouve que c'est suffisant et envoi ses données.
-%    \item B s'attend à recevoir un autre \verb|ACK| et ignore toutes les données.
-%\end{enumerate}
-%Puisque les réponses pour des two-way et three-way handshake sont différentes, il est possible de s'adpater aux réponses reçu et d'éviter les deadlocks.
 
 Les deadlocks n'étaient pas le problème principale des two-way handshake, mais ils arrivaient quand même.
 
@@ -248,42 +236,9 @@ Voici un deadlock possible :
 
 \includegraphics[scale=.8]{q5.png}
 
-
 \clearpage
 
 \section{Exercice 6 \emph{(12 points)}}
-J'ai de la difficulté à comprendre la question, alors voici des solutions selon différentes manière de l'interpréter
-
-\begin{align*}
-    T &: \text{threshold de la taille de la fenêtre avant de ralentir l'agrandissement} \\
-    n &: \text{nombre de segment à envoyer.} = \left\lceil \frac{M}{N} \right\rceil \\
-    F &: \text{Taille maximale de la fenêtre} \\
-    t &: \text{nb de RT nécessaire pour que la fenêtre atteigne la taille $T$.} = \left\lceil\lg(T+1)\right\rceil \\
-    q(i) &: \text{nb de segments envoyés au RT $i$.} = 
-    \left\{\begin{array}{ll}
-         0 & \text{si } i\leq 0 \\
-         2^{i-1} & \text{si } 0 < i \leq t \\
-         \min(F, 2^{t-1}+i-t) & \text{sinon}
-    \end{array}\right.\\
-    Q(i) &: \text{nb total de segments envoyés après un RTT $i$.} = \displaystyle\sum_{j=0}^{i} q(j)
-\end{align*}
-
-\subsection{Envoyer M octets en 1 RT}
-On veut simplement trouver un $i$ tq. $q(i-1) < n \leq q(i)$
-
-Si $n \leq T$ alors la quantité de RT nécessaire pour envoyer $M$ octets en un RT est $\left\lceil\lg{n}\right\rceil+1$.
-Sinon, elle est de $\left\lceil\lg{T}\right\rceil + 1 + n - T$
-
-\subsection{Envoyer M octets en tout}
-Pour $n$ segments, on veut donc trouver un $i$ tq. $Q(i-1) < m \leq Q(i)$.
-
-Si $n \leq Q(t)$ (ie. $i \leq t$), alors $Q(i) = 2^i - 1$ donc $i = \left\lceil\lg(n+1)\right\rceil$
-
-\hfill
-
--------------------------- Ma version ----------------------
-
-\hfill
 
 On doit transmettre $M$ octets au nième aller retour, or la taille d'un segment est de $N$ octets. Donc avec un slow start on commence avec $N$ octets puis $2N$ puis $4N$ et ainsi de suite jusqu'à $2^{n-1}N$ octets (on veut commencer à $2^0$ avec n = 1 et non n = 0 car on aura alors fait 1 aller retour).
 

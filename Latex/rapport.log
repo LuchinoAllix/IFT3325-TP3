@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2022.11.28)  17 DEC 2023 18:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2022.11.28)  17 DEC 2023 18:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -418,10 +418,10 @@ $[]$ $[]$
 ] [4
 
 ]
-<./Images//q5.png, id=124, 409.53pt x 564.1075pt>
+<./Images//q5.png, id=116, 409.53pt x 564.1075pt>
 File: ./Images//q5.png Graphic file (type png)
 <use ./Images//q5.png>
-Package pdftex.def Info: ./Images//q5.png  used on input line 249.
+Package pdftex.def Info: ./Images//q5.png  used on input line 237.
 (pdftex.def)             Requested size: 327.62444pt x 451.2866pt.
  [5
 
@@ -431,20 +431,20 @@ Package pdftex.def Info: ./Images//q5.png  used on input line 249.
 
 ] (rapport.aux)
 Package rerunfilecheck Info: File `rapport.out' has not changed.
-(rerunfilecheck)             Checksum: 854840615AD3F780D2372A577DFE5BC4;3209.
+(rerunfilecheck)             Checksum: EFAD663548251BC88CA49068BD501B85;2828.
  ) 
 Here is how much of TeX's memory you used:
- 11824 strings out of 478582
- 186280 string characters out of 2844343
- 528457 words of memory out of 3000000
- 29816 multiletter control sequences out of 15000+600000
- 482631 words of font info for 52 fonts, out of 8000000 for 9000
+ 11816 strings out of 478582
+ 186192 string characters out of 2844343
+ 528454 words of memory out of 3000000
+ 29812 multiletter control sequences out of 15000+600000
+ 481097 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,16n,63p,808b,426s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 60i,10n,63p,808b,426s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\luchi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\luchi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\luchi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\luchi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1200.pk> <C:\Users\luchi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\luchi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1440.pk> <C:\Users\luchi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\luchi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk> <C:\Users\luchi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1728.pk> <C:\Users\luchi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\luchi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk><C:/Users/luchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/luchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/luchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/luchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/luchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/luchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/luchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/luchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on rapport.pdf (8 pages, 207212 bytes).
+Output written on rapport.pdf (8 pages, 194601 bytes).
 PDF statistics:
- 477 PDF objects out of 1000 (max. 8388607)
- 38 named destinations out of 1000 (max. 500000)
- 174 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 457 PDF objects out of 1000 (max. 8388607)
+ 36 named destinations out of 1000 (max. 500000)
+ 158 words of extra memory for PDF output out of 10000 (max. 10000000)
 
