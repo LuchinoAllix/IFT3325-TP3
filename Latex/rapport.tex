@@ -201,7 +201,7 @@ Lors de l'établissement d'une connexion au niveau de la couche transport, on pe
 \begin{enumerate}
 	\item La taille maximale de la fenêtre. Pour améliorer l'efficacité.
 	\item La taille maximale de segment. Pour permettre de lire correctement les paquets.
-	\item L'utilisation du timestampes. Ceci permet de facilier l'ordre dans lequel les paquets ont été envoyé. 
+	\item L'utilisation du timestamps. Ceci permet de faciliter l'ordre dans lequel les paquets ont été envoyé. 
 \end{enumerate}
 
 \subsection{b. \emph{(4 points)}}
@@ -234,6 +234,19 @@ Bien entendu, les donnés contenues changes aussi.
 %\end{enumerate}
 %Puisque les réponses pour des two-way et three-way handshake sont différentes, il est possible de s'adpater aux réponses reçu et d'éviter les deadlocks.
 
+Les deadlocks n'étaient pas le problème principale des two-way handshake, mais ils arrivaient quand même.
+
+Voici un deadlock possible :
+\begin{enumerate}
+    \item A envoi SYN
+    \item B reçoit SYN et envoi un SYN en retour
+    \item ce dernier et perdu, donc A ne le reçoit pas
+    \item le temporisateur de A expire sans qu'il aie reçu une réponse, alors il renvoi un SYN
+    \item B reçoit ce SYN, mais comme la connexion est déjà ouverte, il l'ignore et attend les données
+    \item A n'a toujours pas de réponse et continue d'envoyer des SYN et B continue de les ignorer
+\end{enumerate}
+
+
 \clearpage
 
 \section{Exercice 6 \emph{(12 points)}}
@@ -256,8 +269,8 @@ J'ai de la difficulté à comprendre la question, alors voici des solutions selo
 \subsection{Envoyer M octets en 1 RT}
 On veut simplement trouver un $i$ tq. $q(i-1) < n \leq q(i)$
 
-Si $n \leq T$ alors la quantité de RT nécessaire pour envoyer $M$ octets en un RT est $\left\lceil\lg{2n}\right\rceil$.
-Sinon, elle est de $\left\lceil\lg{2T}\right\rceil + n - T$
+Si $n \leq T$ alors la quantité de RT nécessaire pour envoyer $M$ octets en un RT est $\left\lceil\lg{n}\right\rceil+1$.
+Sinon, elle est de $\left\lceil\lg{T}\right\rceil + 1 + n - T$
 
 \subsection{Envoyer M octets en tout}
 Pour $n$ segments, on veut donc trouver un $i$ tq. $Q(i-1) < m \leq Q(i)$.
