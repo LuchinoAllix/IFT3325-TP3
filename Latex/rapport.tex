@@ -57,7 +57,7 @@
 
 	\begin{center}
 
-		\includegraphics[scale=.1]{diro.png}
+		%\includegraphics[scale=.1]{diro.png}
 
 		\vspace{0.8cm}
 
@@ -75,6 +75,7 @@
 Pour réduire la charge d'un serveur il faut favoriser l'utilisation de Go-Back-N car les acknowledge cumulatifs permettent de diminuer le nombre de réponses par rapport au grand nombre de petits messages.
 
 \subsection{b. \emph{(4 points)}}
+S'il y a une erreur lors de la lecture d'une trame et qu'elle est rejetée, il est posssible que le fanion qui était supposé marquer la fin soit interprété comme le début d'une nouvelle trame. On essai alors de lire des trames qui n'existe pas et/ou d'ignorer les vrais trames.
 
 \clearpage
 
@@ -204,16 +205,64 @@ Lors de l'établissement d'une connexion au niveau de la couche transport, on pe
 \end{enumerate}
 
 \subsection{b. \emph{(4 points)}}
+\begin{itemize}
+    \item \textbf{Length}: Change de la taille total du paquet à la taille du fragment
+    \item \textbf{fragFlag}/\textbf{bit More}: Indique s'il s'agit du dernier fragment
+    \item \textbf{Offset}: offset du premier bit pertinent du fragment relatif au début du paquet
+\end{itemize}
+Bien entendu, les donnés contenues changes aussi.
 
 \subsection{c. \emph{(3 points)}}
+\begin{itemize}
+    \item Le routeur doit ré-assembler/désassembler chaque paquet qu'il reçoit et transmet, consommant beaucoup de ressources. Un paquet peut donc être ré-assembler/désassembler plusieurs fois lors de sa transmission. Par contre, la quantité de paquet circulant est optimisée
+    \item Chaque paquet est ré-assembler/désassembler une seule fois, à la source et la destination. Il faut par contre connaître d'avance la plus petite taille de paquet autorisée sur le chemin.
+\end{itemize}
 
 \clearpage
 
 \section{Exercice 5 \emph{(12 points)}}
+%Un deadlock se produit si au moins une des machines attend une réponse spécifique avant de procéder d'avantage et que l'autre machine fait tout sauf l'envoyer (généralement parce qu'elle attend elle aussi une réponse avant de procéder). 
+
+%Les two-way handshake ont des problèmes, mais les deadlocks n'en sont généralement pas un. Par contre, si une des machines pense qu'il s'agit d'un three-way handshake et attend le deuxième \verb|ACK| avant de procéder, elle va attendre longtemps.
+
+%Ex:
+%\begin{enumerate}
+%    \item A envoi un \verb|SYN| à B
+%    \item B reçoit le \verb|SYN| et envoi un \verb|ACK|
+%    \item A reçoit le \verb|ACK|. Puisque A utilisait un two-way handshake, il trouve que c'est suffisant et envoi ses données.
+%    \item B s'attend à recevoir un autre \verb|ACK| et ignore toutes les données.
+%\end{enumerate}
+%Puisque les réponses pour des two-way et three-way handshake sont différentes, il est possible de s'adpater aux réponses reçu et d'éviter les deadlocks.
 
 \clearpage
 
 \section{Exercice 6 \emph{(12 points)}}
+J'ai de la difficulté à comprendre la question, alors voici des solutions selon différentes manière de l'interpréter
+
+\begin{align*}
+    T &: \text{threshold de la taille de la fenêtre avant de ralentir l'agrandissement} \\
+    n &: \text{nombre de segment à envoyer.} = \left\lceil \frac{M}{N} \right\rceil \\
+    F &: \text{Taille maximale de la fenêtre} \\
+    t &: \text{nb de RT nécessaire pour que la fenêtre atteigne la taille $T$.} = \left\lceil\lg(T+1)\right\rceil \\
+    q(i) &: \text{nb de segments envoyés au RT $i$.} = 
+    \left\{\begin{array}{ll}
+         0 & \text{si } i\leq 0 \\
+         2^{i-1} & \text{si } 0 < i \leq t \\
+         \min(F, 2^{t-1}+i-t) & \text{sinon}
+    \end{array}\right.\\
+    Q(i) &: \text{nb total de segments envoyés après un RTT $i$.} = \displaystyle\sum_{j=0}^{i} q(j)
+\end{align*}
+
+\subsection{Envoyer M octets en 1 RT}
+On veut simplement trouver un $i$ tq. $q(i-1) < n \leq q(i)$
+
+Si $n \leq T$ alors la quantité de RT nécessaire pour envoyer $M$ octets en un RT est $\left\lceil\lg{2n}\right\rceil$.
+Sinon, elle est de $\left\lceil\lg{2T}\right\rceil + n - T$
+
+\subsection{Envoyer M octets en tout}
+Pour $n$ segments, on veut donc trouver un $i$ tq. $Q(i-1) < m \leq Q(i)$.
+
+Si $n \leq Q(t)$ (ie. $i \leq t$), alors $Q(i) = 2^i - 1$ donc $i = \left\lceil\lg(n+1)\right\rceil$
 
 \clearpage
 
@@ -222,12 +271,13 @@ Lors de l'établissement d'une connexion au niveau de la couche transport, on pe
 \clearpage
 
 \section{Exercice 8 \emph{(10 points)}}
+La durée d'un RT est de $1 + 3 + 2 + 1 + 3 = 10$ unités. Si on assume qu'il n'y a aucune congestion et que la fenêtre de réception reste de la même taille constamment, il y a $7$ segments d'informations transmis chaque 10 unités au maximum.
 
-\clearpage
 
 \section{Exercice 9 \emph{(6 points)}}
+Avec  une connection de 100Mbps et un RTT de 1ms, jusqu'à 125 bytes sont transféré à chaque RT.
+Pour assurer un flux continue, il nous faut donc une fenêtre d'au moins 125 bytes (ça rentre bien dans un seul segment)
 
-\clearpage
 
 \section{Exercice 10 \emph{(5 points)}}
 
