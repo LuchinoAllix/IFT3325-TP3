@@ -164,7 +164,7 @@ On remarque que à partir de la ligne 4, plus rien ne change, en effet tous les 
 
 \subsection{a. \emph{(6 points)}} % A developper 
 
-Les deux réseaux ne peuvent pas communiquer car ils ont le même network ID.
+On remarque que :
 
 
 \noindent \begin{minipage}{9cm}
@@ -184,7 +184,7 @@ Les deux réseaux ne peuvent pas communiquer car ils ont le même network ID.
 
 \hfill
 
-En effet, on remarque que $A \land  M = B \land  M$
+Ce qui veut dire que $A$  et $B$ ont le même réseau, or avec ce masque, il n'y a qu'un seul sous réseau disponible. En effet, vu que $A \land  M = B \land  M$ ils appartiennent donc au même sous réseau. Donc TCP/IP n'est pas le bon médium de communication. 
 
 \subsection{b. \emph{(6 points)}}
 
@@ -285,7 +285,6 @@ On en conclu que $$ n = \left\lceil \log_2\left(\frac{M}{N}\right)\right\rceil +
 
 Non les réseaux à circuits virtuel n'ont pas besoin d'être capable de router des paquets isolé car ils suivent tous un chemin prédéfini. Si on parle d'un paquet qui possède sa destination (qui a été poussé dans le canal quand la connexion à été établie) et qu'il fait parti du circuit virtuel alors aucun routage n'est necessaire, il est dans le circuit et il n'a qu'à le suivre.
 
-\clearpage
 
 \section{Exercice 8 \emph{(10 points)}}
 La durée d'un RT est de $1 + 3 + 2 + 1 + 3 = 10$ unités. Si on assume qu'il n'y a aucune congestion et que la fenêtre de réception reste de la même taille constamment, il y a $7$ segments d'informations transmis chaque 10 unités au maximum.
